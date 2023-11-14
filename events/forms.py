@@ -16,5 +16,6 @@ class EventForm(forms.ModelForm):
 
 
 class RawEventForm(forms.Form):
-    title       = forms.CharField()
-    description = forms.CharField()
+    title           = forms.CharField()
+    description     = forms.CharField()
+    posting_club    = forms.CharField()
