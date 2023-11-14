@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from pages.views import home_view, board_view
-from events.views import event_detail_view
+from events.views import event_detail_view, event_create_view
 
 urlpatterns = [
     path ('', home_view, name='home'),
     path ('board/', board_view, name='board'),
     path ('event/', event_detail_view, name='event'),
+    path ('event/create/', event_create_view, name='event_create'),
     path ('admin/', admin.site.urls),
 ]
