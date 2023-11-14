@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from pages.views import home_view, event_view
+from pages.views import home_view, board_view
+from events.views import event_detail_view
 
 urlpatterns = [
     path ('', home_view, name='home'),
-    path ('event/', event_view, name='event'),
+    path ('board/', board_view, name='board'),
+    path ('event/', event_detail_view, name='event'),
     path ('admin/', admin.site.urls),
 ]
