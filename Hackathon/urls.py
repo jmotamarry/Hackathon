@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from pages.views import home_view, event_view
+
 urlpatterns = [
+    path ('', home_view, name='home'),
+    path ('event/', event_view, name='event'),
     path ('admin/', admin.site.urls),
-    path ("", include ("mainapp.urls"))
 ]

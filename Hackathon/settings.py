@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     # third party
 
     # own
-    'mainapp',
     'events',    # adding events app
 ]
 
