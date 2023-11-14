@@ -4,6 +4,19 @@ from .forms import EventForm, RawEventForm
 from .models import Event
 
 # Create your views here.
+def event_display_all(request):
+    context = {
+        'events': Event.objects.all()
+    }
+    return render(request, 'events/event_display_all', context)
+
+def event_detail_view(request):     # shows one event
+    obj = Event.objects.get(id=1)   # get object 1
+    context = {                     # defines what to pass in to event_detail.html
+        'object': obj,
+    }
+    return render(request, 'events/event_detail.html', context)
+
 
 def event_create_view(request):
     form = RawEventForm()
@@ -31,11 +44,3 @@ def event_create_view(request):
     }
     return render(request, 'events/event_create.html', context)
 """
-
-
-def event_detail_view(request):     # shows one event
-    obj = Event.objects.get(id=1)   # get object 1
-    context = {                     # defines what to pass in to event_detail.html
-        'object': obj,
-    }
-    return render(request, 'events/event_detail.html', context)
