@@ -11,10 +11,12 @@ class EventForm(forms.ModelForm):
             'title',
             'description',
             'posting_club',
+            'approved',
         ]
 
 
 
 class RawEventForm(forms.Form):
-    title       = forms.CharField()
-    description = forms.CharField()
+    title           = forms.CharField()
+    description     = forms.CharField()
+    posting_club    = forms.CharField()
