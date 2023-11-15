@@ -11,6 +11,7 @@ class EventForm(forms.ModelForm):
             'title',
             'description',
             'posting_club',
+            'approved',
         ]
 
 

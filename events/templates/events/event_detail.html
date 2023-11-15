@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>In App template: {{ object.title }}</h1>
+<h1>Event Title: {{ object.title }}</h1>
 <p>{% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
 <p>Posting Club:</p>
 <p>{{ object.posting_club }}</p>
+<a href="/event/delete/{{ object.id }}">Delete event</a>
 
 
 {% endblock %}

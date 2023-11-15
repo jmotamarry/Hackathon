@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from pages.views import home_view, board_view
-from events.views import event_detail_view, event_create_view
+from pages.views import home_view
+from events.views import event_detail_view, event_create_view, event_board_view, event_delete_view
 
 urlpatterns = [
     path ('', home_view, name='home'),
-    path ('board/', board_view, name='board'),
-    path ('event/', event_detail_view, name='event'),
+    path ('board/', event_board_view, name='board'),
+    path ('event/<int:id>/', event_detail_view, name='event'),              # re_path with .* allows event/ with anything after
     path ('event/create/', event_create_view, name='event_create'),
+    path ('event/delete/<int:id>/', event_delete_view, name='event_delete'),
     path ('admin/', admin.site.urls),
 ]
