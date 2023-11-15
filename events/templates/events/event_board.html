@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Board</h1>
-<p>This is a template</p>
+<h1>Event Board</h1>
 
-
-<p>
-All events:
-</p>
-
-<ul>
-{% for event in object_list %}        <!--django template for loop-->
+<div class="row">
+  {% for event in object_list %}        <!--django template for loop-->
     <!--{{ forloop.counter }} - Title: {{ event.title }}     What Iteration number - what list item-->
     {% if event.approved %}
-    <div class="single-list-topics-content">
-        <div class="single-list-topics-icon"><i class="flaticon-building"></i></div>
-        <h2><a href= "{{ event.get_absolute_url }}">{{ event.title }}</a></h2>
-        <p>{{ event.posting_club }}</p>
+        <!--<h2><a href= "{{ event.get_absolute_url }}">{{ event.title }}</a></h2>-->
+      </div>
+      <div class="column">
+        <a href="{{ event.get_absolute_url }}">
+          <div class="box">
+            {% load static %} <img src="{% static 'images/bluepattern.png' %}" alt="Blue Pattern">
+            <div class="gradient"></div>
+            <h1><div class="ellipsis">{{ event.title }}</div></h1>
+            <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>
+            <p>{{ event.description }}</p>
+          </div>
+        </a>
       </div>
     {% endif %}
 {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
