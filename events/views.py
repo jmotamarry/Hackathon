@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
 
 from .forms import EventForm, RawEventForm
 from .models import Event
@@ -8,7 +9,7 @@ def event_delete_view(request, id):
     obj = get_object_or_404(Event, id=id)
     if request.method == 'POST':
         obj.delete()                        # confirm the user wants to delete the object
-        return redirect('/board/')
+        return redirect('/event/board/')
     context = {
         'object': obj,
     }
@@ -22,20 +23,33 @@ def event_detail_view(request, id):         # shows one event
         }
         return render(request, 'events/event_detail.html', context)
     else:
-        return render("<h1>This event has not been approved</h1>")
+        return HttpResponse("<h1>This event has not been approved</h1>")
 
 def event_board_view(request, *args, **kwargs):
     context = {
-        'events': Event.objects.all()
+        'object_list': Event.objects.all()
     }
     return render(request, 'events/event_board.html', context)
+
+
+def event_update_view(request, id=id):
+    obj = get_object_or_404(Event, id=id)
+    form = EventForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect('/event/board/')
+    context = {
+        'form': form
+    }
+    return render(request, 'events/event_create.html', context)
+
 
 def event_create_view(request):                                         # not working to authenticate user
     if request.user != 'AnonymousUser':                                 # tries to prevent someone not logged in from making an event
         form = EventForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('/board/')                                  # redirect to board if the form is saved
+            return redirect('/event/board/')                                  # redirect to board if the form is saved
 
         context = {
             'form': form

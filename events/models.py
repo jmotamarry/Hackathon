@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,3 +11,6 @@ class Event(models.Model):  # makes an event class with five atributes
     start_time   = models.DateTimeField(blank=True, auto_now_add=True)
     end_time     = models.DateTimeField(blank=True, auto_now_add=True) # make end time not required
     posting_club = models.CharField(max_length=100)
+
+    def get_absolute_url(self):
+        return reverse('events:event', kwargs={'id': self.id})
