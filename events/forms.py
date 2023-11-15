@@ -1,5 +1,5 @@
 from django import forms
-
+from django.forms.widgets import DateTimeInput
 
 from .models import Event
 
@@ -10,13 +10,12 @@ class EventForm(forms.ModelForm):
         fields = [
             'title',
             'description',
+            'repeats',
+            'start_time',
+            'end_time',
             'posting_club',
-            'approved',
         ]
-
-
-
-class RawEventForm(forms.Form):
-    title           = forms.CharField()
-    description     = forms.CharField()
-    posting_club    = forms.CharField()
+        widgets = {
+            'start_time': DateTimeInput(attrs={'type': 'date'}),
+            'end_time': DateTimeInput(attrs={'type': 'date'}),
+        }

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
-from .forms import EventForm, RawEventForm
+from .forms import EventForm
 from .models import Event
 
 # Create your views here.
