@@ -20,7 +20,12 @@
   <body>
     {% load static %}
     {% include 'navbar.html' %}
-    <br></br>
+  <br></br/><br>
+    {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
     {% block content %}
 
     {% endblock %}
