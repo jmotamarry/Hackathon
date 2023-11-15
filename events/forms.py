@@ -1,5 +1,5 @@
 from django import forms
-from django.forms.widgets import DateTimeInput
+from django.forms.widgets import TimeInput, DateInput
 
 from .models import Event
 
@@ -11,11 +11,14 @@ class EventForm(forms.ModelForm):
             'title',
             'description',
             'repeats',
+            'date',
             'start_time',
             'end_time',
+            'upload',
             'posting_club',
         ]
         widgets = {
-            'start_time': DateTimeInput(attrs={'type': 'date'}),
-            'end_time': DateTimeInput(attrs={'type': 'date'}),
+            'date': DateInput(attrs={'type': 'date'}),
+            'start_time': TimeInput(attrs={'type': 'time'}),
+            'end_time': TimeInput(attrs={'type': 'time'}),
         }

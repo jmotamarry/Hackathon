@@ -2,15 +2,11 @@
 
 {% block content %}
 <h1>Event Title: {{ object.title }}</h1>
-<p>{% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
-<p>Posting Club:</p>
-<p>{{ object.posting_club }}</p>
-<p>
-    <a href="/event/update/{{ object.id }}">Modify event</a>
-</p>
-
-<a href="/event/delete/{{ object.id }}">Delete event</a>
-
-
-
+<p>{% if object.description %}<dt>Description:</dt>{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
+<p><dt>Repeating Status: </dt>{% if object.repeats %}This is a repeating event{% else %}This is not a repeating event{% endif %}</p> 
+<p><dt>Start time:</dt>{{ object.start_time }}</p>
+<p><dt>End time:</dt>{{ object.end_time }}</p>
+<p><dt>Posting Club:</dt> {{ object.posting_club }}</p>
+<p><a href="/event/update/{{ object.id }}">Modify event</a></p>     <!--Lets users modify the event-->
+<a href="/event/delete/{{ object.id }}">Delete event</a>            <!--Lets users delete the event-->
 {% endblock %}

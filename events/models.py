@@ -9,9 +9,11 @@ class Event(models.Model):  # makes an event class with five atributes
     description  = models.TextField(blank=True, default='') # make description not required
     repeats      = models.BooleanField(default=False)
     approved     = models.BooleanField(default=False)
-    start_time   = models.DateTimeField()
-    end_time     = models.DateTimeField() # make end time not required
+    date         = models.DateField()
+    start_time   = models.TimeField()
+    end_time     = models.TimeField()
     posting_club = models.CharField(max_length=100)
+    upload       = models.ImageField(upload_to='events/static', default='', blank=True)
 
     def get_absolute_url(self):
         return reverse('events:event', kwargs={'id': self.id})
