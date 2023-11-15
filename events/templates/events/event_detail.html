@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %} <link rel="stylesheet" href="{% static 'eventdetails.css' %}"> 
+<div class="fixed-bg"></div>
+<body>
+    <!--{% load static %} <img src="{% static 'images/college_of_san_mateo_cover.jpeg' %}" alt="CSM Campus">-->
+
 <h1>{{ object.title }}</h1>
-<h2>Club: {{ object.posting_club }}</h2>
-<p>{% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
+<h2>{{ object.posting_club }}</h2>
 <p>
-    <a href="/event/update/{{ object.id }}">Modify event</a>
-</p>
-
-<a href="/event/delete/{{ object.id }}">Delete event</a>
-
-
+    {{ object.date }} / {{ object.start_time }} - {{ object.end_time }}{% if object.repeats %} / Repeats{% else %}{% endif %}
+    <br><br>
+    {% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}
+</p>    <!--If description, show it, otherwise show coming soon-->
+<br>
+<a href="/event/update/{{ object.id }}"><button>Modify event</button></a>
+<a href="/event/delete/{{ object.id }}"><button>Delete event</button></a>
+</body>
 
 {% endblock %}
