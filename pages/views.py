@@ -9,5 +9,7 @@ def home_view(request, *args, **kwargs):    # can use request.user
 
 def create_user_view(request):
     if request.method == 'POST':
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        print(request.POST.get)
         User.objects.create_user(username=request.POST.get('inputEmail3'), password=request.POST.get('inputPassword3'))
     return render(request, 'create_user.html', {})
