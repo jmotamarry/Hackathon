@@ -47,10 +47,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party
+    'bootstrap5',
 
     # own
     'events',    # adding events app
-    'pages',
+    'pages',     # adding pages app
+    'members',   # adding members app
 ]
 
 MIDDLEWARE = [
