@@ -1,0 +1,51 @@
+img {
+    border-radius: 0;
+}
+
+body {
+    margin-left: 45px;
+    margin-bottom: 40px;
+}
+
+.fixed-bg {
+    background-image: url("images/college_of_san_mateo_cover.jpeg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center -500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -45px;
+  }
+
+p {
+    font-size: 22px;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2 {
+
+}
+
+button{
+    margin-right: 10px;
+    text-decoration: black;
+    background-color: #0096c4;
+    color: rgb(255, 255, 255);
+    padding: 2px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+button:hover{
+    background-color: #007194;
+}

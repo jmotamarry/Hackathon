@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
+{% load static %} <link rel="stylesheet" href="{% static 'eventboard.css' %}"> 
 <h1>Event Board</h1>
 
 <div class="row">
@@ -12,11 +12,11 @@
       <div class="column">
         <a href="{{ event.get_absolute_url }}">
           <div class="box">
-            {% load static %} <img src="{% static 'images/bluepattern.png' %}" alt="Blue Pattern">
+            {% load static %} <img src="{% static 'images/paper.jpg' %}" alt="Paper">
             <div class="gradient"></div>
             <h1><div class="ellipsis">{{ event.title }}</div></h1>
             <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>
-            <p>{{ event.description }}</p>
+            <p>{% if event.description %}{{ event.description }}{% else %}N/A{% endif %}</p>
           </div>
         </a>
       </div>
