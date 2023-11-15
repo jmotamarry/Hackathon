@@ -1,1 +1,10 @@
 myvenv
+db.sqlite3
+
+events/__pycache__/__init__.cpython-310.pyc
+
+events/__pycache__/admin.cpython-310.pyc
+
+events/__pycache__/apps.cpython-310.pyc
+
+events/__pycache__/forms.cpython-310.pyc

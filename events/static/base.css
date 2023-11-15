@@ -2,19 +2,98 @@ body {
     background-color: rgba(0, 77, 150, 0.034);
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 5px;
+  font-stretch: condensed;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+}
+
+h2 {
+  margin: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+p {
+  margin: 5px;
+}
+
 .box {
   transition: box-shadow .3s;
-  width: 500px;
+  width: 600px;
   height: 300px;
-  margin: 50px;
+  margin: 20px;
   border-radius:10px;
   border: 1px solid #ccc;
-  background: #fff;
+  background-color: white;
   float: left;
+  position: relative;
 }
 
 .box:hover {
   box-shadow: 0 0 15px rgba(33,33,33,.2); 
+}
+
+.box .gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.6));
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+}
+
+.box h1 {
+  position: absolute;
+  width: 60%;
+  top: 2px;
+  left: 15px;
+  font-stretch: condensed;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+}
+
+.box h2 {
+  position: absolute;
+  width: 60%;
+  font-size: 20px;
+  font-weight: bold;
+  top: 45px;
+  left: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.box img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.box p {
+  position: absolute;
+  top: 90px;
+  left: 15px;
+  width: 60%;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 img {
@@ -33,5 +112,5 @@ img {
 
 .column {
   float: left;
-  width: 20%;
+  width: 33%;
 }

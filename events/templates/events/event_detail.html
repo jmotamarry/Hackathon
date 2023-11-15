@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Event Title: {{ object.title }}</h1>
+<h1>{{ object.title }}</h1>
+<h2>Club: {{ object.posting_club }}</h2>
 <p>{% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
-<p>Posting Club:</p>
-<p>{{ object.posting_club }}</p>
 <p>
     <a href="/event/update/{{ object.id }}">Modify event</a>
 </p>
