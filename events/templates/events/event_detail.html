@@ -5,7 +5,12 @@
 <p>{% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}</p>    <!--If description, show it, otherwise show coming soon-->
 <p>Posting Club:</p>
 <p>{{ object.posting_club }}</p>
+<p>
+    <a href="/event/update/{{ object.id }}">Modify event</a>
+</p>
+
 <a href="/event/delete/{{ object.id }}">Delete event</a>
+
 
 
 {% endblock %}

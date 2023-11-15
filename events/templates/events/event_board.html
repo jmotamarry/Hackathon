@@ -10,12 +10,12 @@ All events:
 </p>
 
 <ul>
-{% for event in events %}        <!--django template for loop-->
+{% for event in object_list %}        <!--django template for loop-->
     <!--{{ forloop.counter }} - Title: {{ event.title }}     What Iteration number - what list item-->
     {% if event.approved %}
     <div class="single-list-topics-content">
         <div class="single-list-topics-icon"><i class="flaticon-building"></i></div>
-        <h2><a href= "/event/{{ event.id }}">{{ event.title }}</a></h2>
+        <h2><a href= "{{ event.get_absolute_url }}">{{ event.title }}</a></h2>
         <p>{{ event.posting_club }}</p>
       </div>
     {% endif %}
