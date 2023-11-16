@@ -35,7 +35,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, ("Account creation successful"))
-            return redirect("/events/board/")
+            return redirect("/event/board/")
     else:
         form = UserCreationForm()
     return render(request, 'authenticate/register_user.html', {'form': form})
