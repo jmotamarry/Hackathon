@@ -69,4 +69,4 @@ def moderator_delete_view(request, id=id):
     context = {
         'object': obj,
     }
-    return render(request, 'events/event_delete.html', context)
+    return render(request, 'authenticate/moderator_delete.html', context)
