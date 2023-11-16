@@ -14,7 +14,6 @@ h1 {
   font-stretch: condensed;
   font-size: 30px;
   font-weight: bold;
-  text-decoration: underline;
   font-family: Arial;
   color: rgb(0, 0, 0);
 }
@@ -50,9 +49,8 @@ p {
 .box .gradient {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(245, 255, 110, 0.15), rgba(209, 206, 0, 0.2));
+  background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.5));
   position: absolute;
-  border-radius: 10px;
   top: 0;
   left: 0;
 }
@@ -65,7 +63,6 @@ p {
   font-stretch: condensed;
   font-size: 30px;
   font-weight: bold;
-  text-decoration: underline;
   font-family: Arial;
   color: rgb(0, 0, 0);
 }
@@ -100,7 +97,6 @@ p {
 }
 
 img {
-  border-radius: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;

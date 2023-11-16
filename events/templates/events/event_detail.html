@@ -14,6 +14,10 @@
     {% if object.description %}{{ object.description }}{% else %}Description coming soon{% endif %}
 </p>    <!--If description, show it, otherwise show coming soon-->
 <br>
+{% if object.image %}
+<img src="{{ object.image.url }}">
+{% endif %}
+<br><br>
 <a href="/event/update/{{ object.id }}"><button>Modify event</button></a>
 <a href="/event/delete/{{ object.id }}"><button>Delete event</button></a>
 </body>

@@ -1,5 +1,6 @@
 img {
-    border-radius: 0;
+    width: 40%;
+    border: 2px solid black;
 }
 
 body {
