@@ -25,11 +25,9 @@ def event_detail_view(request, id):         # shows one event
     else:
         return HttpResponse("<h1>This event has not been approved</h1>")
 
-def event_board_view(request, *args, **kwargs):                 # passes the sorted list of all the objects and prints them in order
-    print(request.user.get_all_permissions())
-    sorted_list = Event.objects.all().order_by('date', 'start_time')
+def event_board_view(request, *args, **kwargs):
     context = {
-        'object_list': sorted_list
+        'object_list': Event.objects.all()
     }
     return render(request, 'events/event_board.html', context)
 
@@ -41,23 +39,22 @@ def event_update_view(request, id=id):
         form.save()
         return redirect('/event/board/')
     context = {
-        'object': obj,
-        'form': form,
-    }
-    return render(request, 'events/event_update.html', context)
-
-
-def event_create_view(request):                                         # not working to authenticate user
-    form = EventForm(request.POST or None)
-    if form.is_valid():
-        event = form.save(commit=False)
-        event.user = request.user
-        event.save()
-
-        return redirect('/event/board/')                                  # redirect to board if the form is saved
-
-    context = {
         'form': form
     }
     return render(request, 'events/event_create.html', context)
+
+
+def event_create_view(request):                                         # not working to authenticate user
+    if request.user != 'AnonymousUser':                                 # tries to prevent someone not logged in from making an event
+        form = EventForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('/event/board/')                                  # redirect to board if the form is saved
+
+        context = {
+            'form': form
+        }
+        return render(request, 'events/event_create.html', context)
+    else:
+        return render("<h1>You are not logged in</h1>", {})
 
