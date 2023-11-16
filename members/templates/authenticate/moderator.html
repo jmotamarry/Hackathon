@@ -21,7 +21,11 @@
             <div class="gradient"></div>
             <h1><div class="ellipsis">{{ event.title }}</div></h1>
             <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>
-            <p>{% if event.description %}{{ event.description }}{% else %}N/A{% endif %}</p>
+            <p>
+              {{ event.date }} / {{ event.start_time }} - {{ event.end_time }}
+              <br><br>
+              {% if event.description %}{{ event.description }}{% else %}N/A{% endif %}
+            </p>
           </div>
         </a>
       </div>

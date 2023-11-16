@@ -11,6 +11,7 @@
   <!--{% load static %} <img src="{% static 'images/eventboard.png' %}" alt="Event Board">-->
   <br>
 <div class="row">
+  <!-- For loop to post every event -->
   {% for event in object_list %}        <!--django template for loop-->
     <!--{{ forloop.counter }} - Title: {{ event.title }}     What Iteration number - what list item-->
     {% if event.approved %}
@@ -18,6 +19,7 @@
 </div>
 <div class="column">
   <a href="{{ event.get_absolute_url }}">
+    <!-- Creates a column of boxes -->
     <div class="box">
       {% load static %}
       {% if event.image %}
