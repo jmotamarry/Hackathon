@@ -54,7 +54,7 @@ def moderator_event_detail_view(request, id):           # shows one event
     }
     return render(request, 'authenticate/moderator_event_detail.html', context)
     
-def moderator_update_view(request, id=id):
+def moderator_update_view(request, id=id):      # lets a moderator approve an object
     obj = get_object_or_404(Event, id=id)
     obj.approved = True
     obj.save(update_fields=['approved'])
