@@ -35,7 +35,7 @@ def event_board_view(request, *args, **kwargs):                 # passes the sor
 
 def event_update_view(request, id=id):                          # view that handles if the user wants to change an object
     obj = get_object_or_404(Event, id=id)
-    form = EventForm(request.POST or None, instance=obj)
+    form = EventForm(request.POST, instance=obj)
     if form.is_valid():
         form.save()
         return redirect('/event/board/')
