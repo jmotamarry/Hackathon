@@ -13,7 +13,12 @@
 <div class="column">
   <a href="{{ event.get_absolute_url }}">
     <div class="box">
-      {% load static %} <img src="{% static 'images/paper.jpg' %}" alt="Paper">
+      {% load static %}
+      {% if event.image %}
+      <img src="{{ event.image.url }}" alt="Paper">
+      {% else %}
+      <img src="{% static 'images/paper.jpg' %}" alt="Paper">
+      {% endif %}
       <div class="gradient"></div>
       <h1><div class="ellipsis">{{ event.title }}</div></h1>
       <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>

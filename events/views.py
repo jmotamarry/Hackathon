@@ -26,7 +26,6 @@ def event_detail_view(request, id):         # shows one event
         return HttpResponse("<h1>This event has not been approved</h1>")
 
 def event_board_view(request, *args, **kwargs):                 # passes the sorted list of all the objects and prints them in order
-    print(request.user.get_all_permissions())
     sorted_list = Event.objects.all().order_by('date', 'start_time')
     context = {
         'object_list': sorted_list
@@ -48,7 +47,7 @@ def event_update_view(request, id=id):
 
 
 def event_create_view(request):                                         # not working to authenticate user
-    form = EventForm(request.POST or None)
+    form = EventForm(request.POST, request.FILES)
     if form.is_valid():
         event = form.save(commit=False)
         event.user = request.user

@@ -15,6 +15,7 @@ class Event(models.Model):  # makes an event class with five atributes
     end_time     = models.TimeField()
     posting_club = models.CharField(max_length=100)
     user         = models.ForeignKey(to=User, related_name="events", blank=True, null=True, on_delete=models.CASCADE)
+    image        = models.ImageField(null=True, blank=True, upload_to='images/')
 
     def get_absolute_url(self):
         return reverse('events:event', kwargs={'id': self.id})
