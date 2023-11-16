@@ -21,7 +21,7 @@
     <div class="box">
       {% load static %}
       {% if event.image %}
-      <img src="{{ event.image.url }}" alt="Paper">
+      <img src="{{ event.image.url }}">
       {% else %}
       <img src="{% static 'images/paper.jpg' %}" alt="Paper">
       {% endif %}
