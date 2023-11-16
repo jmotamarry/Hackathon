@@ -1,16 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from events.models import Event
 
 # Create your views here.
-def login_user(request):
+def login_user(request):        # directs a user to a form to log in
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, ("You have successfully logged in"))
             return redirect('home')
         else:
             messages.success(request, ("There was an error logging in, Try again"))
@@ -20,12 +23,12 @@ def login_user(request):
     else:
         return render(request, 'authenticate/login.html', {})
     
-def logout_user(request):
+def logout_user(request):           # logs out a user
     logout(request)
     messages.success(request, ("Logged Out Successfully"))
     return redirect('/event/board/')
 
-def register_user(request):
+def register_user(request):         # directs a user to a form to create account
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():

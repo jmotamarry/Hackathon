@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %} <link rel="stylesheet" href="{% static 'eventboard.css' %}"> 
+<h1>Admin Event Board (un-approved events)</h1>
+
+<div class="row">
+  {% for event in object_list %}        <!--django template for loop-->
+    <!--{{ forloop.counter }} - Title: {{ event.title }}     What Iteration number - what list item-->
+    {% if event.approved == False %}
+        <!--<h2><a href= "{{ event.get_absolute_url }}">{{ event.title }}</a></h2>-->
+      </div>
+      <div class="column">
+        <a href="/members/moderator/view/{{ event.id }}/">
+          <div class="box">
+            {% load static %} <img src="{% static 'images/paper.jpg' %}" alt="Paper">
+            <div class="gradient"></div>
+            <h1><div class="ellipsis">{{ event.title }}</div></h1>
+            <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>
+            <p>{% if event.description %}{{ event.description }}{% else %}N/A{% endif %}</p>
+          </div>
+        </a>
+      </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
