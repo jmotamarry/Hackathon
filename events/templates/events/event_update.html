@@ -2,6 +2,13 @@
 
 {% block content %}
 
+<style>
+    body {
+        margin-top: 70px;
+    }
+</style>
+
+<body>
 {% if user.is_authenticated %}           <!--Only allow a logged in user to view the page-->
 <h1>Update Event...</h1>
 Logged In User: {{ user }}
@@ -25,5 +32,6 @@ Event Poster:   {{ object.user.username }}
 <a href="/members/login_user/">Login Here</a>
 
 {% endif %}
+</body>
 
 {% endblock %}
