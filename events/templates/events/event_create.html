@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    body {
+        margin-top: 70px;
+    }
+</style>
 
 {% if user.is_authenticated %}           <!--Only allow a logged in user to view the page-->
 <form method="POST"> {% csrf_token %}    <!--Action takes you to a different address-->
+    <br>
     {{ form.as_p }}
 <input type="submit" value="Save"/>
 </form>
