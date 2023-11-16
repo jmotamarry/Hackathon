@@ -8,6 +8,7 @@ body {
     margin-bottom: 40px;
 }
 
+/* Fixed image */
 .fixed-bg {
     background-image: url("images/college_of_san_mateo_cover.jpeg");
     min-height: 500px;
@@ -27,12 +28,9 @@ p {
 h1 {
     font-size: 40px;
     font-weight: bold;
-    text-decoration: underline;
 }
 
-h2 {
-
-}
+/* Button for modify and deletes */
 
 button{
     margin-right: 10px;
