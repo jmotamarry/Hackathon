@@ -20,14 +20,9 @@
   <body>
     {% load static %}
     {% include 'navbar.html' %}
-  <br></br/><br>
-    {% if messages %}
-    {% for message in messages %}
-      {{ message }}
-    {% endfor %}
-  {% endif %}
+    {% include 'messages.html' %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
     {% block content %}
-
     {% endblock %}
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

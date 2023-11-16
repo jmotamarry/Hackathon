@@ -1,0 +1,21 @@
+body {
+    margin-top: 90px;
+    background-image: url("images/college_of_san_mateo_cover.jpeg");
+}
+
+input [type=text] {
+    width: 60%;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+    height: 600px;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: white;
+    padding: 35px;
+}
+
+h1{
+    text-align: center;
+}

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% load static %} <link rel="stylesheet" href="{% static 'login.css' %}">
+<body>
+  <div class="center">
     <h1>Login</h1>
-<br/><br/>
-
+    <br><br>
 
 
     <form action="" method=POST>    <!--Action takes you to a different address-->
@@ -14,14 +15,15 @@
           <label for="exampleInputEmail1" class="form-label">Username</label>
           <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
         </div>
+        <br>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" class="form-control" name="password">
         </div>
+        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
-
-<br/><br/>
+  </div>
+</div>
+</body>
 {% endblock %}
