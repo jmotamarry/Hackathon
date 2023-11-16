@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party
+    'bootstrap5',
 
     # own
     'events',    # adding events app

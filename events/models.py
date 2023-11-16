@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -14,7 +13,7 @@ class Event(models.Model):  # makes an event class with five atributes
     start_time   = models.TimeField()
     end_time     = models.TimeField()
     posting_club = models.CharField(max_length=100)
-    user         = models.ForeignKey(to=User, related_name="events", blank=True, null=True, on_delete=models.CASCADE)
+    upload       = models.ImageField(upload_to='events/static', default='', blank=True)
 
     def get_absolute_url(self):
         return reverse('events:event', kwargs={'id': self.id})
