@@ -12,7 +12,12 @@
       <div class="column">
         <a href="/members/moderator/view/{{ event.id }}/">
           <div class="box">
-            {% load static %} <img src="{% static 'images/paper.jpg' %}" alt="Paper">
+            {% load static %}
+            {% if event.image %}                                <!--checks if event.image has a url-->
+            <img src="{{ event.image.url }}" alt="Paper">       <!--Display the image-->
+            {% else %}
+            <img src="{% static 'images/paper.jpg' %}" alt="Paper">
+            {% endif %}
             <div class="gradient"></div>
             <h1><div class="ellipsis">{{ event.title }}</div></h1>
             <h2><div class="ellipsis">{{ event.posting_club }}</div></h2>
