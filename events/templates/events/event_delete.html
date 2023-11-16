@@ -14,7 +14,7 @@
 {% if user == object.user %}
 <form action='.' method='POST'> {% csrf_token %}    <!--Action takes you to a different address-->
     <h1>Do you want to delete the event "{{ object.title }}"?</h1>
-    <p><input type='submit' value='Yes' /> <a href="/event/board/">Cancel</a>
+    <p><input type='submit' value='Yes' /> <a href="/event/board/">Cancel</a>       <!--Send POST request if the button is pressed-->
 </form>
 {% else %}
 <h1>Sorry, you did not create this event</h1>

@@ -22,10 +22,11 @@ import django.contrib.auth.urls
 from pages.views import home_view
 from events.views import event_board_view
 
+# sets the main paths
 urlpatterns = [
-    path ('event/', include('events.urls')),
-    path ('members/', include('members.urls')),
+    path ('event/', include('events.urls')),                        # check all the urls in the events app with an event/
+    path ('members/', include('members.urls')),                     # check in members app with members/
     path ('members/', include('django.contrib.auth.urls')),
-    path ('', event_board_view, name='home'),
-    path ('admin/', admin.site.urls),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path ('', event_board_view, name='home'),                       # home url
+    path ('admin/', admin.site.urls),                               # django admin
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    # needed to take in images

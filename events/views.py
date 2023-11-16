@@ -5,7 +5,7 @@ from .forms import EventForm
 from .models import Event
 
 # Create your views here.
-def event_delete_view(request, id):
+def event_delete_view(request, id):         # deletes the event if the user wants to
     obj = get_object_or_404(Event, id=id)
     if request.method == 'POST':
         obj.delete()                        # confirm the user wants to delete the object
@@ -25,7 +25,7 @@ def event_detail_view(request, id):         # shows one event
     else:
         return HttpResponse("<h1>This event has not been approved</h1>")
 
-def event_board_view(request, *args, **kwargs):                 # passes the sorted list of all the objects and prints them in order
+def event_board_view(request, *args, **kwargs):                 # passes the sorted list of all the objects and outputs them in order
     sorted_list = Event.objects.all().order_by('date', 'start_time')
     context = {
         'object_list': sorted_list
@@ -33,7 +33,7 @@ def event_board_view(request, *args, **kwargs):                 # passes the sor
     return render(request, 'events/event_board.html', context)
 
 
-def event_update_view(request, id=id):
+def event_update_view(request, id=id):                          # view that handles if the user wants to change an object
     obj = get_object_or_404(Event, id=id)
     form = EventForm(request.POST or None, instance=obj)
     if form.is_valid():
@@ -46,7 +46,7 @@ def event_update_view(request, id=id):
     return render(request, 'events/event_update.html', context)
 
 
-def event_create_view(request):                                         # not working to authenticate user
+def event_create_view(request):                                         # create an event
     form = EventForm(request.POST, request.FILES)
     if form.is_valid():
         event = form.save(commit=False)

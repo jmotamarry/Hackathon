@@ -9,10 +9,10 @@
 </style>
 
 <body>
-{% if user.is_authenticated %}           <!--Only allow a logged in user to view the page-->
+{% if user.is_authenticated %}                                         <!--Only allow a logged in user to view the page-->
 <form method="POST" enctype="multipart/form-data"> {% csrf_token %}    <!--Action takes you to a different address-->
     <h1>Create Event</h1>
-    {{ form.as_p }}
+    {{ form.as_p }}                                                    <!--Renders the form as paragraphs-->
 <input type="submit" value="Save"/>
 </form>
 

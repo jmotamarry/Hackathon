@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content %}         <!--Loads the page with all the information wanted-->
 {% load static %} <link rel="stylesheet" href="{% static 'eventdetails.css' %}">
 <div class="fixed-bg"></div>
 <body>
-    <!--{% load static %} <img src="{% static 'images/college_of_san_mateo_cover.jpeg' %}" alt="CSM Campus">-->
-
 <h1>{{ object.title }}</h1>
 <h2>{{ object.posting_club }}</h2>
 <p>

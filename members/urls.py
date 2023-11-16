@@ -2,6 +2,7 @@ from django.urls import path, include
 
 from . import views
 
+# defines the different urls for the member app
 urlpatterns = [
     path ('login_user/', views.login_user, name='login'),
     path ('logout_user/', views.logout_user, name='logout'),

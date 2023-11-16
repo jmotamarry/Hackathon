@@ -1,4 +1,5 @@
 from django.urls import path
+# importing the views we create
 from .views import (
     event_detail_view, 
     event_create_view, 
@@ -6,7 +7,7 @@ from .views import (
     event_delete_view, 
     event_update_view
 )
-
+                            # defines all of the paths for the events app
 app_name = 'events'
 urlpatterns = [
     path ('board/', event_board_view, name='board'),

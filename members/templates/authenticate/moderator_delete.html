@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content %}         <!--Unrestricted delete for the moderator-->
 
 <style>
     body {
@@ -10,8 +10,8 @@
 
 <body>
 
-{% if user.is_authenticated %}                      <!--Only allow a logged in user to view the page-->
-<form action='.' method='POST'> {% csrf_token %}    <!--Action takes you to a different address-->
+{% if user.is_authenticated %}
+<form action='.' method='POST'> {% csrf_token %}
     <h1>Do you want to delete the event "{{ object.title }}"?</h1>
     <p><input type='submit' value='Yes' /> <a href="/members/moderator/">Cancel</a>
 </form>

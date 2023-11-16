@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Event(models.Model):  # makes an event class with five atributes
-    title        = models.CharField(max_length=120) # make title limited to 120 chars
-    description  = models.TextField(blank=True, default='') # make description not required
+class Event(models.Model):                                      # makes the main data model, each event has the attributes below
+    title        = models.CharField(max_length=120)
+    description  = models.TextField(blank=True, default='')
     repeats      = models.BooleanField(default=False)
     approved     = models.BooleanField(default=False)
     date         = models.DateField()

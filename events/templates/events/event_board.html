@@ -12,15 +12,13 @@
   <br>
 <div class="row">
   {% for event in object_list %}        <!--django template for loop-->
-    <!--{{ forloop.counter }} - Title: {{ event.title }}     What Iteration number - what list item-->
-    {% if event.approved %}
-        <!--<h2><a href= "{{ event.get_absolute_url }}">{{ event.title }}</a></h2>-->
+{% if event.approved %}                 <!--If the event is approved, post it to the board-->
 </div>
 <div class="column">
   <a href="{{ event.get_absolute_url }}">
     <div class="box">
       {% load static %}
-      {% if event.image %}
+      {% if event.image %}               <!--If the event has an image, put it as the background-->
       <img src="{{ event.image.url }}">
       {% else %}
       <img src="{% static 'images/paper.jpg' %}" alt="Paper">
