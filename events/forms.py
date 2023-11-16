@@ -14,7 +14,6 @@ class EventForm(forms.ModelForm):
             'date',
             'start_time',
             'end_time',
-            'upload',
             'posting_club',
         ]
         widgets = {

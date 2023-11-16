@@ -3,10 +3,21 @@
 {% block content %}
 
 {% if user.is_authenticated %}           <!--Only allow a logged in user to view the page-->
+<h1>Update Event...</h1>
+Logged In User: {{ user }}
+<br/>
+Event Poster:   {{ object.user.username }}
+<br/>
+{% if user == object.user %}
 <form method="POST"> {% csrf_token %}    <!--Action takes you to a different address-->
     {{ form.as_p }}
 <input type="submit" value="Save"/>
 </form>
+{% else %}
+<h1>Sorry, you did not create this event</h1>
+
+<a href="/members/login_user/">Login Here</a>
+{% endif %}
 
 {% else %}
 <h1>Sorry, you must be logged in to view this page</h1>
